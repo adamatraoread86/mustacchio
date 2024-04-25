@@ -1,12 +1,12 @@
 const axios = require("axios");
 
-const bltURL = `${process.env.bltURL}`;
-const bltKey = `${process.env.bltkey}`;
+const _bltURL = `${process.env.bltURL}`;
+const _bltKey = `${process.env.bltkey}`;
 
 const bltAxios = axios.create({
-    baseURL: bltURL,
+    baseURL: _bltURL,
     headers: {
-       "Authorization": bltKey
+       "Authorization": _bltKey
     }
 });
 

@@ -29,7 +29,7 @@ exports.getStyles = async (req, res, next) => {
 exports.getToken = (req, res, next) => {
       const token = jwt.sign(
         {},
-        process.env.token_secret,
+        process.env._token_secret,
         { expiresIn: "24h" }
       );
       return res
@@ -42,7 +42,7 @@ exports.verifyToken = (req, res, next) => {
     const token = req.query.token;
     let decodedToken
     try {      
-      decodedToken = jwt.verify(token, process.env.token_secret);
+      decodedToken = jwt.verify(token, process.env._token_secret);
     } catch (err) {
       console.log(err);
       return res.status(500).json({ message: "Server Error"});
