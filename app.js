@@ -87,7 +87,7 @@ app.use(expressLayouts);
 //Initialize session middleware
 app.use(
   session({
-    secret: process.env._secret,
+    secret: process.env._SECRET,
     resave: false,
     saveUninitialized: false,
     store: store,

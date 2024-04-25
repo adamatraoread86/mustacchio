@@ -6,7 +6,7 @@ const sendgridTransport = require("nodemailer-sendgrid-transport");
 
 const transporter = nodemailer.createTransport(sendgridTransport({
   auth: {
-    _api_key: process.env.api_key
+    APIKEY: process.env.APIKEY
   }
 }));
 
@@ -42,7 +42,7 @@ exports.createContact = async (req, res, next) => {
     res.render("thanks", { pageTitle: "Thank You!", path: "/contacts/new" });
     return transporter.sendMail({
       to: email,
-      from: process.env._from_email,
+      from: process.env.FROM_EMAIL,
       subject: "Contact successfully created!",
       html: "<h1>You successfully created your contact!</h1>"
     }) 
