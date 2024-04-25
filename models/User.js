@@ -49,12 +49,13 @@ userSchema.pre("save", async function () {
 
 // Instance method to validate the user's password
 userSchema.methods.validatePassword = function (enteredPassword) {
-    // bcrypt.compare returns true if the passwords match, false otherwise
+    // bcrypt.compare returns true if the password matches, false otherwise
     return bcrypt.compare(enteredPassword, this.password);
   };
 
-  // this static method will check if email is new (has not been used before)
+  // this static method will check if the entered email is new (has not been used before)
   userSchema.statics.checkEmailNew = async function (email) {
+    //Try to find a user with the entered email
     const user = await this.findOne({email: email});
     // Return true if we don't find an existing user with the email address, false otherwise
     return !Boolean(user);

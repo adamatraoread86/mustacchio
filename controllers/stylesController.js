@@ -1,5 +1,6 @@
 const MustacheStyle = require("../models/MustacheStyle");
 
+//Retrieve all styles from mongoDB database and populate the values
 exports.getStyles = async (req, res, next) => {
   try {
     const styles = await MustacheStyle.find().populate("title");
@@ -10,6 +11,7 @@ exports.getStyles = async (req, res, next) => {
   }
 }
 
+//Retrieve a single style form mongoDB database
 exports.getSingleStyle = async (req, res, next) => {
   const { slug } = req.params;
   try {
@@ -28,6 +30,7 @@ exports.getSingleStyle = async (req, res, next) => {
   }
 }
 
+//Display the new style form
 exports.getNewStyle = (req, res, next) => {
   res.render("new-style", {
     pageTitle: "New style",
@@ -35,6 +38,7 @@ exports.getNewStyle = (req, res, next) => {
   });
 }
 
+//Create anew style using mongoDB atlas database query method
 exports.createNewStyle = async (req, res, next) => {
   // Retrieve values from the form
   const title = req.body.title;

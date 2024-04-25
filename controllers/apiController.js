@@ -4,7 +4,9 @@ const jwt = require("jsonwebtoken");
 exports.getStyles = async (req, res, next) => {
 
         try {
+          //Find all styles in  mongoDB database and populate the values
             const styles = await MustacheStyle.find().populate("title");
+          //Array method that will return a new array based on this new set up
             const stylesWithImageUrls = styles.map(style => ({
                 id: style._id,
                 title: style.title,
@@ -26,6 +28,7 @@ exports.getStyles = async (req, res, next) => {
         };
 }
 
+//Create a token that includes a secret, the token will expire in 24 hours
 exports.getToken = (req, res, next) => {
       const token = jwt.sign(
         {},
@@ -37,6 +40,7 @@ exports.getToken = (req, res, next) => {
         .json({ message: "Token Generated!!!", token: token});    
 }
 
+//Verify that the user has a valid token before they could retrieve the api
 exports.verifyToken = (req, res, next) => {
 
     const token = req.query.token;

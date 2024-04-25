@@ -3,18 +3,19 @@ const nodemailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
 
 
-
+//Create a nodemailer transporter method to deliver emails
 const transporter = nodemailer.createTransport(sendgridTransport({
   auth: {
     api_key: process.env.APIKEY
   }
 }));
 
-
+//Display the contact request form 
 exports.getContact = (req, res, next) => {
   res.render("contact", { pageTitle: "Contact", path: "/contacts/new" });
 };
 
+//Get contact lists
 exports.getContactList = async (req, res, next) => {
   try {
     const contacts = await ContactRequest.find({dateResponded: null});
@@ -28,6 +29,7 @@ exports.getContactList = async (req, res, next) => {
   }
 };
 
+//Create a new contact using mongoDB atlas database query method
 exports.createContact = async (req, res, next) => {
   try {
     //Retrieve the date from contact form

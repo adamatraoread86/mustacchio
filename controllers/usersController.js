@@ -1,14 +1,17 @@
 const User = require("../models/User");
 const MustacheStyle = require("../models/MustacheStyle");
 
+//Display the login form
 exports.getLogin = (req, res, next) => {
   res.render("login", { pageTitle: "Login", path: "/login" });
 };
 
+//Display the register form
 exports.getRegister = (req, res, next) => {
   res.render("register", { pageTitle: "Register", path: "/register" });
 };
 
+//Allow the user to login with registered credentials
 exports.postLogin = async (req, res, next) => {
   // Retrieve values from the login form
   const email = req.body.email;
@@ -54,6 +57,8 @@ exports.postLogin = async (req, res, next) => {
   }
 };
 
+
+//Allow a new user to create a new mustacchio account 
 exports.postRegister = async (req, res, next) => {
   //Retrieve values from the register form
   const firstname = req.body.firstname;
@@ -94,6 +99,7 @@ exports.postRegister = async (req, res, next) => {
   }
 }
 
+//Allow the user to logout
 exports.getLogout = (req, res, next) => {
   req.session.destroy((err) => {
     console.log(err)   
@@ -101,6 +107,7 @@ exports.getLogout = (req, res, next) => {
   });
 }
 
+//Allow a logged in user to save a style as favorite
 exports.saveAsFavorite = async (req, res, next) => {
   const userId = req.session.user._id;
   const { styleId } = req.params;
@@ -114,6 +121,7 @@ exports.saveAsFavorite = async (req, res, next) => {
   }
 }
 
+//Display a given user's favorite styles
 exports.favoriteStyles = async (req, res, next) => {
   const userId = req.session.user._id;
   try {
@@ -132,6 +140,7 @@ exports.favoriteStyles = async (req, res, next) => {
   }
 }
 
+//Display all users in a form
 exports.getAdminPrivileges = async (req, res, next) => {
 
   try {
@@ -151,6 +160,8 @@ exports.getAdminPrivileges = async (req, res, next) => {
   }
 }
 
+
+//Allow the site admin to update users' status to admin or revoke the privilege
 exports.updateAdminPrivileges = async (req, res, next) => {
 
   try {
