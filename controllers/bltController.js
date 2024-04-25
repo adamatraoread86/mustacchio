@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 const BLTURL = `${process.env.BLTURL}`;
-const BLTKey = `${process.env.BLTKey}`;
+const BLTKey = `${process.env.BLTKEY}`;
 
 const bltAxios = axios.create({
     baseURL: BLTURL,
