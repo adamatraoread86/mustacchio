@@ -1,0 +1,16 @@
+<div class="content">
+    <div>
+        <div>
+            <h1><span>A list of all basketball players.</span></h1>
+            <p>
+                This page displays a list of basketball players.<a href="https://api.balldontlie.io/v1">Balldontlie</a>
+                The api call fetches basketball players.
+            </p>
+            <ul>
+                <% players.forEach(player => { %>
+                    <li> <%= player.first_name %> <%= player.last_name %> </li>           
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</div>

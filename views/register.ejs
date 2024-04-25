@@ -1,0 +1,13 @@
+        <div>
+        <h1><span>Create your mustacchio account!</span></h1>
+        <%- include('partials/feedback.ejs') %>
+        <form action="/register" method="POST">
+            <input type="text" name="firstname" id="firstname" placeholder="firstname" required value="<%= locals.entries && locals.entries.firstname %>"/>
+            <input type="text" name="lastname" id="lastname" placeholder="lastname" required value="<%= locals.entries && locals.entries.lastname %>"/>
+            <input type="email" name="email" id="email" placeholder="email" required value="<%= locals.entries && locals.entries.email %>"/>
+            <input type="password" name="password" id="password" placeholder="password" required value="<%= locals.entries && locals.entries.password %>"/>
+          <input type="submit" name="send" id="send" value="send" />
+        
+        </form>
+    </div>
+ 

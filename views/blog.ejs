@@ -1,0 +1,25 @@
+<h1><span>blog</span></h1>
+<% if (locals.user && locals.user.admin) { %>
+	<form action="/updateAdminPrivileges" method="GET">
+		<button type="submit" id="send">Update Admin Privileges</button>
+		
+	</form>
+<% } %>
+<div>
+    <ul>
+	<% blogs.forEach((blog) => { %>
+	    <li>
+		<a href="blog/<%=blog.slug%>" class="figure">
+		    <img src="/<%=blog.imageURL%>" alt="<%=blog.summary%>">
+		</a>
+		<div>
+		    <h3><%=blog.title%></h3>
+		    <p><%=blog.summary%></p>
+		    <a href="blog/<%=blog.slug%>" class="more">read this</a>
+		</div>
+	    </li>
+	<% }) %>
+
+    </ul>
+</div>
+</div>

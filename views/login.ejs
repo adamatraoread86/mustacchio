@@ -1,0 +1,15 @@
+      <div>
+        <h1><span>Log in to your mustacchio account!</span></h1>
+        <%- include('partials/feedback.ejs') %>
+        <form action="/login" method="POST">
+            <input type="email" name="email" id="email" placeholder="email" required value="<%= locals.entries && locals.entries.email %>"/>
+            <input type="password" name="password" id="password" placeholder="password" required value="<%= locals.entries && locals.entries.password %>"/>
+          <input type="submit" name="send" id="send" value="send" />
+          <p><a href="/register" >New here?  Create an account!</a></p> 
+          
+         <!--  <h2>Admin Credentials</h2>
+          <p>Email: amy@sylla.com</p>
+          <p>Password: syllaamy2021$</p> -->
+        </form>
+      </div>
+  

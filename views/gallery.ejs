@@ -1,0 +1,17 @@
+<h1><span>style gallery</span></h1>
+<% if (locals.user && locals.user.admin) { %>
+	<form action="/styles/new" method="GET">
+		<button type="submit" id="send">New style</button>
+		
+	</form>
+<% } %>
+<ul class="gallery">
+	<% styles.forEach((style) => { %>
+	<li>
+		<a href="styles/<%=style.slug%>" name="<%=style.slug%>">
+			<img src="/<%=style.imageURL%>" alt="<%=style.description%>">
+		</a>
+	</li>
+	<% }) %>
+</ul>
+</div>

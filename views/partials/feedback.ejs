@@ -1,0 +1,9 @@
+      <%# Output any messages indicating success or failure %>
+      <p><%= locals.message ? message : "" %></p>
+
+      <%# If errors are passed to the view, list them here %>
+      <ul style="all: revert; color: #822619">
+        <% locals.errors && locals.errors.forEach(error => { %>
+        <li style="all: revert"><%= error.message %></li>
+        <% }) %>
+      </ul>

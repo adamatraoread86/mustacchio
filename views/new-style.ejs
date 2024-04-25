@@ -1,0 +1,12 @@
+<div>
+<h1><span>New style</span></h1>
+<%- include('partials/feedback.ejs') %>
+<form action="/styles/new" method="POST" enctype="multipart/form-data">
+<input type="text" name="title" id="title" placeholder="title" required value="<%= locals.entries && locals.entries.title %>">
+<input type="text" name="description" id="description" placeholder="description" required value="<%= locals.entries && locals.entries.description %>">
+<input type="file" name="image" id="image" placeholder="image" required value="<%= locals.entries && locals.entries.image %>">
+<button type="submit" id="send">Submit</button>
+
+</form>
+</div>
+

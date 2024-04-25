@@ -1,0 +1,16 @@
+<form action="/updateAdminPrivileges" method="POST">
+        <% users.forEach(( user, index) => { %>
+        <div>
+            <input type="hidden" name="users[<%= index %>][_id]" value="<%= user._id %>">
+            <label>Full Name:</label>
+            <input type="text" name="users[<%= index %>][name]" value="<%= user.name %>" readonly>
+            <label>Email address:</label>
+            <input type="email" name="users[<%= index %>][email]" value="<%= user.email %>" readonly>
+            <label>Admin Privileges</label>
+            <input type="checkbox" name="users[<%= index %>][admin]" <%= user.admin ? "checked" : "" %> >
+          
+        </div>
+        <% }) %>
+        <button type="submit" id="send">Update Admin Privileges</button>
+</form>
+
