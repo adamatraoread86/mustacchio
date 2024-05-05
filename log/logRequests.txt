@@ -2270,3 +2270,9 @@
 [0mGET /styles [36m304[0m 83.113 ms - -[0m
 [0mGET /about [32m200[0m 1.430 ms - 3751[0m
 [0mGET / [36m304[0m 2.018 ms - -[0m
+[0mGET / [32m200[0m 9.608 ms - 2504[0m
+[0mGET / [36m304[0m 2.719 ms - -[0m
+[0mGET /favoritestyles [32m200[0m 194.672 ms - 2701[0m
+[0mGET /styles [32m200[0m 89.867 ms - 3537[0m
+[0mGET /favoritestyles [36m304[0m 157.233 ms - -[0m
+[0mGET /styles [36m304[0m 92.245 ms - -[0m
